@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap');
-
+@import url('taskItem');
 * {
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
@@ -63,4 +63,8 @@ input[type='submit'] {
     height: 40px;
     color: white;
     font-weight: bold;
+}
+.fillPls {
+    color: red;
+    text-align: center;
 }

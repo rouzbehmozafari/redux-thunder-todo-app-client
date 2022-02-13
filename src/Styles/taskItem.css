@@ -1,0 +1,31 @@
+.TaskItem {
+  background-color: #effdff;
+  padding: 4% 4%;
+  margin: 3% 0;
+  position: relative;
+  border-left: 4px green solid;
+}
+
+.TaskItem .delet {
+  position: absolute;
+  top: 25%;
+  right: 13%;
+}
+
+.TaskItem .delet:hover {
+  cursor: pointer;
+}
+
+.TaskItem .edit {
+  background-color: black;
+  color: white;
+  width: 60px;
+  text-align: center;
+  padding: 7px 0;
+  border-radius: 7px;
+}
+
+.TaskItem .edit:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=taskItem.css.map */

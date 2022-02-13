@@ -1,6 +1,6 @@
 import {useState} from 'react'
-import Tasks from './Components/Tasks';
 import { Add } from './Components/Add';
+import { List } from './Components/List';
 import './Styles/Style.css'
 function App() {
   const [isAdd,setIsAdd] = useState(false)
@@ -15,7 +15,7 @@ function App() {
             {!isAdd ? 'Add':'Close'}</div>
         </div>
         {isAdd && <Add/>}
-        <Tasks/>
+        <List/>
       </div>
     </div>
   );

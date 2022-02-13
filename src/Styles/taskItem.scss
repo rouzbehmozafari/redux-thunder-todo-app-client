@@ -1,0 +1,26 @@
+.TaskItem {
+    background-color: rgb(239, 253, 255);
+    padding: 4% 4%;
+    margin: 3% 0;
+    position: relative;
+    border-left: 4px green solid;
+    .delet {
+        position: absolute;
+        top: 25%;
+        right: 13%;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .edit {
+        background-color: black;
+        color: white;
+        width: 60px;
+        text-align: center;
+        padding: 7px 0;
+        border-radius: 7px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
