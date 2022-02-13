@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {useState} from 'react'
+import Tasks from './Components/Tasks';
+import { Add } from './Components/Add';
+import './Styles/Style.css'
 function App() {
+  const [isAdd,setIsAdd] = useState(false)
+  const [isAddTxt,setIsAddTxt] = useState(false)
+  const addChanger = (e) => {
+    e.preventDefault()
+    setIsAdd(!isAdd)
+    setIsAddTxt(!isAddTxt)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="mainContainer">
+        <div className="header">
+          <h1>Task Tracker</h1>
+          <div style={isAdd? {backgroundColor : 'red'}: {backgroundColor:'green'}} 
+          className="addClose" 
+          onClick={addChanger} >
+            {!isAddTxt ? 'Add':'Close'}</div>
+        </div>
+        {isAdd && <Add/>}
+        <Tasks/>
+      </div>
     </div>
   );
 }
