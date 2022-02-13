@@ -28,4 +28,38 @@
 .TaskItem .edit:hover {
   cursor: pointer;
 }
+
+.TaskItem input {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.TaskItem .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.TaskItem .options * {
+  text-align: center;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+.TaskItem .options *:hover {
+  cursor: pointer;
+}
+
+.TaskItem .options .approve {
+  color: white;
+  background-color: green;
+}
+
+.TaskItem .options .cancel {
+  background-color: white;
+  border: black 1px solid;
+}
 /*# sourceMappingURL=taskItem.css.map */

@@ -10,12 +10,14 @@ export const tasksSlice = createSlice({
     removeTask: (state,action) => {
       return state.filter(i=> i.id != action.payload)
     },
-    // status: (state,action) => {
-    //     state.todosList[action.payload.id].completed = action.payload.completed
-    // },
+    editTask: (state,action) => {
+        const indx = state.findIndex(i => i.id === action.payload.id)
+        state[indx].deadline = action.payload.newDeadline
+        state[indx].desc = action.payload.newDesc
+    },
   },
 })
 
-export const { addNewTask,removeTask } = tasksSlice.actions
+export const { addNewTask,removeTask,editTask } = tasksSlice.actions
 
 export default tasksSlice.reducer
