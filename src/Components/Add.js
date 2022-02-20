@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState ,useEffect} from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { addNewTask } from "../redux/tasksSlice"
+import { addNewTask,addTasksAsync } from "../redux/tasksSlice"
 export const Add = ()=>{
     const tasks = useSelector((state)=>state.tasks)
     const dispatch = useDispatch()
@@ -9,10 +9,19 @@ export const Add = ()=>{
     const [isReminder,setIsReminder] = useState(false)
     const [remDate,setIsRemDate] = useState(false)
     const [isEmpty,setIsEmpty] = useState(false)
+    const [fillForm,setFillForm] = useState(false)
+
+
+
+    useEffect(()=>{
+        if (!dt){
+            setIsEmpty(true)
+        } else {setIsEmpty(false)}
+    },[dt])
+
     const saveTask = (e)=>{
         e.preventDefault();
-        (!desc || !dt) ? setIsEmpty(true) :setIsEmpty(false)
-        // console.log(desc,dt,isReminder)
+        isEmpty ? setFillForm(true) : setFillForm(false)
         // console.log(new Date(dt).toISOString().slice(0, -1))
         // console.log(new Date(dt).toLocaleString())
         if (!isEmpty){
@@ -24,8 +33,9 @@ export const Add = ()=>{
                 dateCreated: Date.now(),
                 reminder : remDate,
             }
-            console.log(newTask)
-            dispatch(addNewTask(newTask))
+            dispatch(addTasksAsync(newTask))
+            // console.log(newTask)
+            // dispatch(addNewTask(newTask))
         }
     }
     return (
@@ -43,7 +53,7 @@ export const Add = ()=>{
                     }
                 </div>
                 <input type="submit" value='Save Task' onClick={saveTask} />
-            {isEmpty && <h4 className="fillPls">Please fill in the form</h4>}
+            {fillForm && <h4 className="fillPls">Please fill in the form</h4>}
             </form>
         </div>
     )

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useStore } from "react-redux"
-import { removeTask,editTask } from "../redux/tasksSlice"
-export const TaskItem = ({id,desc,isDone,deadline,dateCreated,reminder})=> {
+import { removeTask,editTask,removeTaskAsync } from "../redux/tasksSlice"
+export const TaskItem = ({_id,id,desc,isDone,deadline,dateCreated,reminder})=> {
     const [isEdit,setIsEdit] = useState(false)
     const [newDesc,setNewDesc] = useState('')
     const [newDeadline,setNewDeadline] = useState(deadline)
@@ -20,7 +20,7 @@ export const TaskItem = ({id,desc,isDone,deadline,dateCreated,reminder})=> {
                 <p className="desc">{desc}</p>
                 <p className="deadline">{ ndeadline}</p>
                 <div className="edit"onClick={e=>setIsEdit(true)} >Edit</div>
-                <div className="delet" onClick={()=>dispatch(removeTask(id))}>&#10060;</div>
+                <div className="delet" onClick={()=>dispatch(removeTaskAsync({"idToRemove":_id}))}>&#10060;</div>
             </>}
             {isEdit && 
             <>
