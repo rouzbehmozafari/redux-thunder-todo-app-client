@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-const fetchUrl = 'http://localhost:1818/todos'
-const addNewTaskUrl = 'http://localhost:1818/addNewTask'
-const removeTaskUrl = 'http://localhost:1818/removeTask'
+const fetchUrl = 'https://redux-thunder-todo-server.herokuapp.com/todos'
+const addNewTaskUrl = 'https://redux-thunder-todo-server.herokuapp.com/addNewTask'
+const removeTaskUrl = 'https://redux-thunder-todo-server.herokuapp.com/removeTask'
 
 const getTasksAsync = createAsyncThunk('tasks/getTasksAsync', async ()=>{
   const {data} = await axios.get(fetchUrl)
